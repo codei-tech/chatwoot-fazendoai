@@ -17,7 +17,7 @@
     // GitLens
     "eamodio.gitlens",
     // Ruby
-    "rebornix.ruby",
+    "shopify.ruby-lsp",
     // Vue
     "octref.vetur",
     // Prettier
