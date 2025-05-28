@@ -1,6 +1,6 @@
 # TODO: lets use HTTParty instead of RestClient
 class ChatwootHub
-  BASE_URL = ENV.fetch('CHATWOOT_HUB_URL', 'https://hub.2.chatwoot.com')
+  BASE_URL = ENV.fetch('CHATWOOT_HUB_URL', 'https://google.com').freeze
   PING_URL = "#{BASE_URL}/ping".freeze
   REGISTRATION_URL = "#{BASE_URL}/instances".freeze
   PUSH_NOTIFICATION_URL = "#{BASE_URL}/send_push".freeze
@@ -18,9 +18,16 @@ class ChatwootHub
     "#{BILLING_URL}?installation_identifier=#{installation_identifier}"
   end
 
+  # def self.pricing_plan
+  #   InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN')&.value || 'community'
+  # end
+
+  # Plano entreprise
+  # O plano enterprise é o plano padrão para a instalação
+  # e não é necessário configurar o plano de preços na instalação.
   def self.pricing_plan
-    InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN')&.value || 'community'
-  end
+    'enterprise'
+   end
 
   # def self.pricing_plan_quantity
   #   InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN_QUANTITY')&.value || 0
